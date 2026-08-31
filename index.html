@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Vale Multimarcas | Dashboard Comercial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <header class="header">
+    <div class="header__brand">
+      <img src="assets/logo.png" alt="Auto Vale Multimarcas" class="header__logo">
+      <div class="header__titles">
+        <h1 class="header__title">Dashboard Comercial</h1>
+        <p class="header__subtitle">Performance dos SDRs</p>
+      </div>
+    </div>
+   <div class="header__controls">
+  <div class="header__filters">
+    <div class="date-filter">
+      <label for="data-inicio">De:</label>
+      <input type="date" id="data-inicio" class="date-input" />
+    </div>
+    <div class="date-filter">
+      <label for="data-fim">Até:</label>
+      <input type="date" id="data-fim" class="date-input" />
+    </div>
+  </div>
+  <p class="header__updated status-line">Carregando dados...</p>
+  <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Alternar tema claro/escuro">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
+  </button>
+</div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button type="button" class="tab-btn active" data-tab="autovale" role="tab" aria-selected="true">Auto Vale</button>
+    <button type="button" class="tab-btn" data-tab="marketing" role="tab" aria-selected="false">Marketing</button>
+  </nav>
+
+  <main class="main">
+
+   <div class="tab-panel active" id="painel-autovale" role="tabpanel">
+    <!-- VISÃO GERAL -->
+    <section aria-label="Visão geral">
+      <div class="section-heading">
+        <h2>Visão geral</h2>
+        <p>Resumo dos resultados comerciais de <span id="visao-periodo">Semana 1</span>.</p>
+      </div>
+      <div class="visao-geral__grid" id="visao-geral-grid"></div>
+    </section>
+
+    <!-- INDICADORES FINANCEIROS -->
+    <section aria-label="Indicadores financeiros">
+      <div class="section-heading">
+        <h2>Indicadores financeiros</h2>
+      </div>
+      <div class="indicadores__grid" id="indicadores-grid"></div>
+    </section>
+
+    <!-- DESEMPENHO POR SDR -->
+    <section aria-label="Desempenho por SDR">
+      <div class="section-heading">
+        <h2>Desempenho por SDR</h2>
+        <p>Resultado individual de cada SDR no período selecionado.</p>
+      </div>
+      <div class="sdr__grid" id="sdr-grid"></div>
+    </section>
+
+    <!-- COMPARATIVO -->
+    <section aria-label="Comparativo de desempenho">
+      <div class="section-heading">
+        <h2>Comparativo de desempenho</h2>
+      </div>
+
+      <div class="tabela-wrap">
+        <table class="tabela-comparativo">
+          <thead>
+            <tr>
+              <th>SDR</th>
+              <th>Contratos</th>
+              <th>Faturamento</th>
+              <th>Ticket médio</th>
+              <th>Retorno</th>
+              <th>TAC</th>
+              <th>Participação</th>
+            </tr>
+          </thead>
+          <tbody id="comparativo-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="comparativo-cards" id="comparativo-cards"></div>
+    </section>
+
+    <!-- RANKING -->
+    <section aria-label="Ranking dos SDRs">
+      <div class="section-heading">
+        <h2>Ranking dos SDRs</h2>
+        <p>Ordenado pela quantidade de contratos fechados.</p>
+      </div>
+      <div class="ranking__lista" id="ranking-lista"></div>
+    </section>
+   </div>
+
+   <div class="tab-panel" id="painel-marketing" role="tabpanel">
+    <!-- MARKETING -->
+    <section aria-label="Marketing">
+      <div class="section-heading marketing-heading">
+        <div>
+          <h2>Marketing</h2>
+          <p>Investimento e funil de conversão do período selecionado no filtro acima.</p>
+        </div>
+      </div>
+      <p class="status-line" id="marketing-status">Carregando dados...</p>
+      <div class="marketing__grid" id="marketing-grid"></div>
+    </section>
+
+    <section aria-label="Funil de conversão">
+      <div class="section-heading">
+        <h2>Funil de conversão</h2>
+        <p>Volume e taxa de conversão em cada etapa, do lead até a venda.</p>
+      </div>
+      <div class="funil-wrap" id="funil-wrap"></div>
+    </section>
+   </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>Auto Vale Multimarcas &bull; Dashboard Comercial</p>
+  </footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="dados.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
