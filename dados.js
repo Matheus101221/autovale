@@ -19,6 +19,9 @@ const cardsMarketing = [
   { key: "investimento",      label: "Investimento",       format: "moeda",      comparar: true },
   { key: "leads",              label: "Leads",               format: "numero",     comparar: true },
   { key: "custoPorLead",       label: "Custo por lead",      format: "moeda",      comparar: true,  direcao: "menor_melhor" },
+    { key: "simulacoes",         label: "Simulações",          format: "numero",     percentualKey: "simulacoesPct", percentualLabel: "dos leads", comparar: true },
+  { key: "aprovacoes",         label: "Aprovações",          format: "numero",     percentualKey: "aprovacoesPct", percentualLabel: "das simulações", comparar: true },
+  { key: "custoPorAprovado",   label: "Custo por aprovado",  format: "moeda",      metaLabel: "Meta",     metaValor: 35,  direcao: "menor_melhor" },
   { key: "vendas",             label: "Vendas",              format: "numero",     percentualKey: "vendasPct", percentualLabel: "das aprovações", comparar: true },
   { key: "custoPorVenda",      label: "Custo por venda",     format: "moeda",      metaLabel: "Meta",     metaValor: 150, direcao: "menor_melhor", comparar: true }
 ];
