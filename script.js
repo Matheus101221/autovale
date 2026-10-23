@@ -476,7 +476,7 @@ function renderizarSDRs(sdrs, totalContratos) {
   });
 }
 
-const NOMES_VENDEDORES = ["Rafaella", "Wesley", "Vinicius", "Luan", "Sérgio", "Moisés"];
+const NOMES_VENDEDORES = ["Rafaella", "Wesley", "Luan", "Sérgio"];
 
 function chaveVendedor(nome) {
   return String(nome || "").trim().toLocaleLowerCase("pt-BR");
