@@ -2,7 +2,8 @@
 <html lang="pt-BR" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#031038">
 <title>Auto Vale Multimarcas | Dashboard Comercial</title>
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -132,8 +133,9 @@
         <section aria-label="Ranking dos SDRs">
           <div class="section-heading">
             <h2>Ranking dos SDRs</h2>
-            <p>Ordenado pela quantidade de contratos fechados.</p>
+            <p>Pódio 3D e lista ordenada pela quantidade de contratos fechados.</p>
           </div>
+          <div id="fx-podio"></div>
           <div class="ranking__lista" id="ranking-lista"></div>
         </section>
 
@@ -157,13 +159,14 @@
             <h2>Funil de Conversão </h2>
             <p>Volume e taxa de conversão em cada etapa, do lead à venda.</p>
           </div>
+          <div id="fx-funil"></div>
           <div class="funil-wrap" id="funil-wrap"></div>
         </section>
 
         <section aria-label="Desempenho por vendedor">
           <div class="section-heading">
             <h2>Desempenho por vendedor</h2>
-            <p>Aprovados, vendas, faturamento, ticket médio e participação no período selecionado.</p><p class="data-limits">Vendas e faturamento usam a data exata da aba Vendas. Aprovados vêm agrupados por vendedor e semana; se o período selecionado cruzar uma semana, o total aprovado daquela semana entra inteiro, sem rateio. “Custo dos aprovados” é uma estimativa: aprovados do vendedor × custo global por aprovado do período.</p>
+            <p>Aprovados, vendas, faturamento, ticket médio e participação no período selecionado.</p><p class="data-limits">Vendas e faturamento usam a data exata da aba Vendas. Aprovados são semanais e entram integralmente quando a data inicial da semana está no intervalo. “Custo dos aprovados” é uma estimativa: aprovados do vendedor × custo global por aprovado do período.</p>
           </div>
           <div class="vendedores__grid" id="vendedores-grid"></div>
         </section>
@@ -187,6 +190,8 @@
 
 <script src="dados.js"></script>
 <script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="three-fx.js"></script>
 <script src="relatorio-whatsapp.js"></script>
 </body>
 </html>
